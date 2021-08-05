@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_095841) do
+ActiveRecord::Schema.define(version: 2021_08_05_101350) do
 
   create_table "data_importations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -88,6 +88,23 @@ ActiveRecord::Schema.define(version: 2021_08_05_095841) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.string "manufacturer"
+    t.integer "cost_in_credits"
+    t.float "length"
+    t.integer "max_atmosphering_speed"
+    t.string "crew"
+    t.integer "passengers"
+    t.integer "cargo_capacity"
+    t.string "consumables"
+    t.string "vehicle_class"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

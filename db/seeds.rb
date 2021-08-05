@@ -6,6 +6,7 @@ Film.destroy_all
 Planet.destroy_all
 Specie.destroy_all
 Starship.destroy_all
+Vehicle.destroy_all
 'DB cleaned'
 
 seed = DataImportation.new
@@ -25,3 +26,7 @@ puts "#{Specie.count} species OK"
 puts 'Starships importation'
 seed.import_starships
 puts "#{Starship.count} starships OK"
+#### VEHICLES IMPORTATION ####
+puts 'Vehicles importation'
+seed.import_vehicles
+puts "#{Vehicle.count} vehicles OK"

@@ -81,6 +81,28 @@ class DataImportation < ApplicationRecord
     end
   end
 
+  def import_vehicles
+    @data_url = 'https://swapi.dev/api/vehicles'
+    vehicle_results = many_data_pages
+
+    vehicle_results.each do |vehicle|
+      Vehicle.create!(
+        name: vehicle['name'],
+        model: vehicle['model'],
+        manufacturer: vehicle['manufacturer'],
+        cost_in_credits: vehicle['cost_in_credits'],
+        length: vehicle['length'],
+        max_atmosphering_speed: vehicle['max_atmosphering_speed'],
+        crew: vehicle['crew'],
+        passengers: vehicle['passengers'],
+        cargo_capacity: vehicle['cargo_capacity'],
+        consumables: vehicle['consumables'],
+        vehicle_class: vehicle['starship_class'],
+        url: vehicle['url']
+      )
+    end
+  end
+
   private
 
   def many_data_pages
