@@ -31,7 +31,52 @@ class DataImportation < ApplicationRecord
         climate: planet['climate'],
         gravity: planet['gravity'],
         terrain: planet['terrain'],
-        population: planet['population']
+        population: planet['population'],
+        url: planet['url']
+      )
+    end
+  end
+
+  def import_species
+    @data_url = 'https://swapi.dev/api/species'
+    specie_results = many_data_pages
+
+    specie_results.each do |specie|
+      Specie.create!(
+        name: specie['name'],
+        classification: specie['classification'],
+        designation: specie['designation'],
+        average_height: specie['average_height'],
+        skin_colors: specie['skin_colors'],
+        hair_colors: specie['hair_colors'],
+        eye_colors: specie['eye_colors'],
+        average_lifespan: specie['average_lifespan'],
+        language: specie['language'],
+        url: specie['url']
+      )
+    end
+  end
+
+  def import_starships
+    @data_url = 'https://swapi.dev/api/starships'
+    starship_results = many_data_pages
+
+    starship_results.each do |starship|
+      Starship.create!(
+        name: starship['name'],
+        model: starship['model'],
+        manufacturer: starship['manufacturer'],
+        cost_in_credits: starship['cost_in_credits'],
+        length: starship['length'],
+        max_atmosphering_speed: starship['max_atmosphering_speed'],
+        crew: starship['crew'],
+        passengers: starship['passengers'],
+        cargo_capacity: starship['cargo_capacity'],
+        consumables: starship['consumables'],
+        hyperdrive_rating: starship['hyperdrive_rating'],
+        MGLT: starship['MGLT'],
+        starship_class: starship['starship_class'],
+        url: starship['url']
       )
     end
   end

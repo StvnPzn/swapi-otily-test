@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_075119) do
+ActiveRecord::Schema.define(version: 2021_08_05_095841) do
 
   create_table "data_importations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -39,6 +39,41 @@ ActiveRecord::Schema.define(version: 2021_08_05_075119) do
     t.string "terrain"
     t.integer "surface_water"
     t.integer "population"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "url"
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.string "classification"
+    t.string "designation"
+    t.integer "average_height"
+    t.string "skin_colors"
+    t.string "hair_colors"
+    t.string "eye_colors"
+    t.integer "average_lifespan"
+    t.string "language"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "starships", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.string "manufacturer"
+    t.integer "cost_in_credits"
+    t.integer "length"
+    t.integer "max_atmosphering_speed"
+    t.string "crew"
+    t.integer "passengers"
+    t.integer "cargo_capacity"
+    t.string "consumables"
+    t.float "hyperdrive_rating"
+    t.integer "MGLT"
+    t.string "starship_class"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
