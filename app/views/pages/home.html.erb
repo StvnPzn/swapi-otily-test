@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Bienvenue dans l'univers Star Wars !</h1>
+  <p>Choisissez une catégorie et découvrez tous les élements qui composent votre saga préférée !</p>
+
+  <h2>L'univers est composé de :</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "#{Film.count} films", films_path  %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "#{Character.count} personnages", characters_path  %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "#{Specie.count} espèces", species_index_path  %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "#{Planet.count} planètes", planets_path  %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "#{Starship.count} vaisseaux spatiaux", starships_path  %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "#{Vehicle.count} véhicules", vehicles_path  %>
+    </div>
+  </div>
+
+</div>
