@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_101350) do
+ActiveRecord::Schema.define(version: 2021_08_05_120820) do
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "height"
+    t.integer "mass"
+    t.string "hair_color"
+    t.string "skin_color"
+    t.string "eye_color"
+    t.string "birth_year"
+    t.string "gender"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "data_importations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false

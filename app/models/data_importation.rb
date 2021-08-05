@@ -103,6 +103,25 @@ class DataImportation < ApplicationRecord
     end
   end
 
+  def import_characters
+    @data_url = 'https://swapi.dev/api/people'
+    people_results = many_data_pages
+
+    people_results.each do |people|
+      Character.create!(
+        name: people['name'],
+        height: people['height'],
+        mass: people['mass'],
+        hair_color: people['hair_color'],
+        skin_color: people['skin_color'],
+        eye_color: people['eye_color'],
+        birth_year: people['birth_year'],
+        gender: people['gender'],
+        url: people['url']
+      )
+    end
+  end
+
   private
 
   def many_data_pages
