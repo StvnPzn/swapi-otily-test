@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Les films Star Wars</h1>
+  <ul class="list-group">
+    <% @films.each do |film| %>
+      <li class="list-group-item"><%= link_to "#{film.title}", film_path(film)  %></li>
+    <% end -%>
+  </ul>
+
+
+</div>
