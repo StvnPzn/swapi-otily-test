@@ -1,7 +1,50 @@
 <div class="container">
 
-  <p><%= @specie.name %></p>
-  <p><%= @specie.classification %></p>
-  <p><%= @specie.designation %></p>
+  <h1 class="text-center py-3"><%= @specie.name %></h1>
 
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Caractéristiques</th>
+        <th scope="col">Infos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Classification</th>
+        <td><%= @specie.classification %></td>
+      </tr>
+      <tr>
+        <th scope="row">Désignation</th>
+        <td><%= @specie.designation %></td>
+      </tr>
+      <tr>
+        <th scope="row">Taille moyenne</th>
+        <td><%= @specie.average_height %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleurs de peau</th>
+        <td><%= @specie.skin_colors %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleurs de cheveux</th>
+        <td><%= @specie.hair_colors %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleurs des yeux</th>
+        <td><%= @specie.eye_colors %></td>
+      </tr>
+      <tr>
+        <th scope="row">Durée de vie moyenne</th>
+        <td><%= @specie.average_lifespan %></td>
+      </tr>
+      <tr>
+        <th scope="row">Language</th>
+        <td><%= @specie.language %></td>
+      </tr>
+    </tbody>
+
+  </table>
 </div>

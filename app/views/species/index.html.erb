@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1>Les différentes espèces de Star Wars</h1>
+  <h1 class="py-3">Les différentes espèces de Star Wars</h1>
   <ul class="list-group">
     <% @species.each do |specie| %>
       <li class="list-group-item"><%= link_to "#{specie.name}", species_path(specie)  %></li>

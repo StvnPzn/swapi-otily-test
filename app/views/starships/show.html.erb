@@ -1,7 +1,66 @@
 <div class="container">
 
-  <p><%= @starship.name %></p>
-  <p><%= @starship.model %></p>
-  <p><%= @starship.manufacturer %></p>
+  <h1 class="text-center py-3"><%= @starship.name %></h1>
 
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Caractéristiques</th>
+        <th scope="col">Infos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Modèle</th>
+        <td><%= @starship.model %></td>
+      </tr>
+      <tr>
+        <th scope="row">Constructeur</th>
+        <td><%= @starship.manufacturer %></td>
+      </tr>
+      <tr>
+        <th scope="row">Coût</th>
+        <td><%= @starship.cost_in_credits %></td>
+      </tr>
+      <tr>
+        <th scope="row">Longueur</th>
+        <td><%= @starship.length %></td>
+      </tr>
+      <tr>
+        <th scope="row">Vitesse maxi</th>
+        <td><%= @starship.max_atmosphering_speed %></td>
+      </tr>
+      <tr>
+        <th scope="row">Équipage</th>
+        <td><%= @starship.crew %></td>
+      </tr>
+      <tr>
+        <th scope="row">Passagers</th>
+        <td><%= @starship.passengers %></td>
+      </tr>
+      <tr>
+        <th scope="row">Capacité</th>
+        <td><%= @starship.cargo_capacity %></td>
+      </tr>
+      <tr>
+        <th scope="row">Consumables</th>
+        <td><%= @starship.consumables %></td>
+      </tr>
+      <tr>
+        <th scope="row">Hyperdrive rating</th>
+        <td><%= @starship.hyperdrive_rating %></td>
+      </tr>
+      <tr>
+        <th scope="row">MGLT</th>
+        <td><%= @starship.MGLT %></td>
+      </tr>
+      <tr>
+        <th scope="row">Type de vaisseau</th>
+        <td><%= @starship.starship_class %></td>
+      </tr>
+    </tbody>
+
+  </table>
 </div>

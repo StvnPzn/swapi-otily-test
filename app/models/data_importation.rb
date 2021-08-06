@@ -20,9 +20,9 @@ class DataImportation < ApplicationRecord
 
   def import_planets
     @data_url = 'https://swapi.dev/api/planets'
-    planet_results = many_data_pages
+    @planet_results = many_data_pages
 
-    planet_results.each do |planet|
+    @planet_results.each do |planet|
       Planet.create!(
         name: planet['name'],
         rotation_period: planet['rotation_period'],
@@ -39,9 +39,9 @@ class DataImportation < ApplicationRecord
 
   def import_species
     @data_url = 'https://swapi.dev/api/species'
-    specie_results = many_data_pages
+    @specie_results = many_data_pages
 
-    specie_results.each do |specie|
+    @specie_results.each do |specie|
       Specie.create!(
         name: specie['name'],
         classification: specie['classification'],
@@ -59,9 +59,9 @@ class DataImportation < ApplicationRecord
 
   def import_starships
     @data_url = 'https://swapi.dev/api/starships'
-    starship_results = many_data_pages
+    @starship_results = many_data_pages
 
-    starship_results.each do |starship|
+    @starship_results.each do |starship|
       Starship.create!(
         name: starship['name'],
         model: starship['model'],
@@ -83,9 +83,9 @@ class DataImportation < ApplicationRecord
 
   def import_vehicles
     @data_url = 'https://swapi.dev/api/vehicles'
-    vehicle_results = many_data_pages
+    @vehicle_results = many_data_pages
 
-    vehicle_results.each do |vehicle|
+    @vehicle_results.each do |vehicle|
       Vehicle.create!(
         name: vehicle['name'],
         model: vehicle['model'],
@@ -105,9 +105,9 @@ class DataImportation < ApplicationRecord
 
   def import_characters
     @data_url = 'https://swapi.dev/api/people'
-    people_results = many_data_pages
+    @people_results = many_data_pages
 
-    people_results.each do |people|
+    @people_results.each do |people|
       Character.create!(
         name: people['name'],
         height: people['height'],
@@ -121,6 +121,7 @@ class DataImportation < ApplicationRecord
       )
     end
   end
+  #### STARTING FROM HERE : this part was coded without test following the API death
 
   def film_matching
     @film_results.each do |film|
@@ -131,6 +132,10 @@ class DataImportation < ApplicationRecord
       current_film.save
     end
   end
+  ## --> si ce bloc de code fonctionne, j'itere ensuite pour associer les species,
+  ## --> planete, etc (en prenant en compte que ça peut parfois etre empty
+  ## --> et appliquer mon scheme de BDD (+ creation des tables de jonction necessaires)
+  #### END
 
   private
 

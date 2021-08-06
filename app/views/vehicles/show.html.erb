@@ -1,7 +1,58 @@
 <div class="container">
 
-  <p><%= @vehicle.name %></p>
-  <p><%= @vehicle.model %></p>
-  <p><%= @vehicle.manufacturer %></p>
+  <h1 class="text-center py-3"><%= @vehicle.name %></h1>
 
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Caractéristiques</th>
+        <th scope="col">Infos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Modèle</th>
+        <td><%= @vehicle.model %></td>
+      </tr>
+      <tr>
+        <th scope="row">Constructeur</th>
+        <td><%= @vehicle.manufacturer %></td>
+      </tr>
+      <tr>
+        <th scope="row">Coût</th>
+        <td><%= @vehicle.cost_in_credits %></td>
+      </tr>
+      <tr>
+        <th scope="row">Longueur</th>
+        <td><%= @vehicle.length %></td>
+      </tr>
+      <tr>
+        <th scope="row">Vitesse maxi</th>
+        <td><%= @vehicle.max_atmosphering_speed %></td>
+      </tr>
+      <tr>
+        <th scope="row">Équipage</th>
+        <td><%= @vehicle.crew %></td>
+      </tr>
+      <tr>
+        <th scope="row">Passagers</th>
+        <td><%= @vehicle.passengers %></td>
+      </tr>
+      <tr>
+        <th scope="row">Capacité</th>
+        <td><%= @vehicle.cargo_capacity %></td>
+      </tr>
+      <tr>
+        <th scope="row">Consumables</th>
+        <td><%= @vehicle.consumables %></td>
+      </tr>
+      <tr>
+        <th scope="row">Type de vaisseau</th>
+        <td><%= @vehicle.vehicle_class %></td>
+      </tr>
+    </tbody>
+
+  </table>
 </div>

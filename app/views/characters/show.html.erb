@@ -1,5 +1,46 @@
 <div class="container">
-  <p><%= @character.name %></p>
-  <p><%= @character.height %></p>
-  <p><%= @character.mass %></p>
+
+  <h1 class="text-center py-3"><%= @character.name %></h1>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Caractéristiques</th>
+        <th scope="col">Infos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Taille</th>
+        <td><%= @character.height %></td>
+      </tr>
+      <tr>
+        <th scope="row">Poids</th>
+        <td><%= @character.mass %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleur de cheveux</th>
+        <td><%= @character.hair_color %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleur de peau</th>
+        <td><%= @character.skin_color %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleur des yeux</th>
+        <td><%= @character.eye_color %></td>
+      </tr>
+      <tr>
+        <th scope="row">Année de naissance</th>
+        <td><%= @character.birth_year %></td>
+      </tr>
+      <tr>
+        <th scope="row">Genre</th>
+        <td><%= @character.gender %></td>
+      </tr>
+    </tbody>
+
+  </table>
 </div>

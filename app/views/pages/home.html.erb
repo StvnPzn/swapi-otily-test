@@ -1,42 +1,43 @@
 <div class="container">
-  <h1>Bienvenue dans l'univers Star Wars !</h1>
-  <p>Choisissez une catégorie et découvrez tous les élements qui composent votre saga préférée !</p>
 
-  <h2>L'univers est composé de :</h2>
+  <div class="text-center py-3">
+    <h1>Bienvenue dans l'univers Star Wars !</h1>
+    <p>Choisissez une catégorie et découvrez tous les élements qui composent votre saga préférée !</p>
+  </div>
 
   <div class="card">
     <div class="card-body">
-      <%= link_to "#{Film.count} films", films_path  %>
+      <%= link_to "#{Film.count} films", films_path, class: "text-decoration-none"  %>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <%= link_to "#{Character.count} personnages", characters_path  %>
+      <%= link_to "#{Character.count} personnages", characters_path, class: "text-decoration-none"  %>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <%= link_to "#{Specie.count} espèces", species_index_path  %>
+      <%= link_to "#{Specie.count} espèces", species_index_path, class: "text-decoration-none"  %>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <%= link_to "#{Planet.count} planètes", planets_path  %>
+      <%= link_to "#{Planet.count} planètes", planets_path, class: "text-decoration-none"  %>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <%= link_to "#{Starship.count} vaisseaux spatiaux", starships_path  %>
+      <%= link_to "#{Starship.count} vaisseaux spatiaux", starships_path, class: "text-decoration-none"  %>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <%= link_to "#{Vehicle.count} véhicules", vehicles_path  %>
+      <%= link_to "#{Vehicle.count} véhicules", vehicles_path, class: "text-decoration-none"  %>
     </div>
   </div>
 
