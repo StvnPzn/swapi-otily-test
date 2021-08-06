@@ -1,11 +1,11 @@
 class DataImportation < ApplicationRecord
   attr_accessor :data_url
 
-  def import_films(url)
-    film_serialized = URI.open(url).read
-    films = JSON.parse(film_serialized)
+  def import_films
+    @data_url = 'https://swapi.dev/api/films'
+    @film_results = many_data_pages
 
-    films['results'].each do |film|
+    @film_results.each do |film|
       Film.create!(
         title: film['title'],
         episode_num: film['episode_id'],
@@ -119,6 +119,16 @@ class DataImportation < ApplicationRecord
         gender: people['gender'],
         url: people['url']
       )
+    end
+  end
+
+  def film_matching
+    @film_results.each do |film|
+      current_film = Film.find(['url'].split('/').last.to_i)
+      film['characters'].each do |character|
+        current_film.characters << Film.find(character.split('/').last.to_i)
+      end
+      current_film.save
     end
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_120820) do
+ActiveRecord::Schema.define(version: 2021_08_05_175238) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2021_08_05_120820) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chars_films", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "character_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_chars_films_on_character_id"
+    t.index ["film_id"], name: "index_chars_films_on_film_id"
   end
 
   create_table "data_importations", force: :cascade do |t|
@@ -121,4 +130,6 @@ ActiveRecord::Schema.define(version: 2021_08_05_120820) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "chars_films", "characters"
+  add_foreign_key "chars_films", "films"
 end

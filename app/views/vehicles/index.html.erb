@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1>Les véhicules de Star Wars</h1>
+  <ul class="list-group">
+    <% @vehicles.each do |vehicle| %>
+      <li class="list-group-item"><%= link_to "#{vehicle.name}", vehicle_path(vehicle)  %></li>
+    <% end -%>
+  </ul>
+
+</div>

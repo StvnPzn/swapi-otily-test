@@ -13,7 +13,7 @@ puts 'DB cleaned'
 seed = DataImportation.new
 #### FILMS IMPORTATION ####
 puts 'Films importation'
-seed.import_films('https://swapi.dev/api/films')
+seed.import_films
 puts "#{Film.count} films OK"
 #### PLANETS IMPORTATION ####
 puts 'Planets importation'
@@ -35,3 +35,5 @@ puts "#{Vehicle.count} vehicles OK"
 puts 'Characters importation'
 seed.import_characters
 puts "#{Character.count} characters OK"
+puts "Test des relations films/characters"
+seed.film_matching
