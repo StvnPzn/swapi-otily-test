@@ -7,6 +7,7 @@ class DataImportation < ApplicationRecord
 
     @film_results.each do |film|
       Film.create!(
+        id: film['url'].split('/').last.to_i,
         title: film['title'],
         episode_num: film['episode_id'],
         opening_crawl: film['opening_crawl'],
@@ -24,6 +25,7 @@ class DataImportation < ApplicationRecord
 
     @planet_results.each do |planet|
       Planet.create!(
+        id: planet['url'].split('/').last.to_i,
         name: planet['name'],
         rotation_period: planet['rotation_period'],
         orbital_period: planet['orbital_period'],
@@ -43,6 +45,7 @@ class DataImportation < ApplicationRecord
 
     @specie_results.each do |specie|
       Specie.create!(
+        id: specie['url'].split('/').last.to_i,
         name: specie['name'],
         classification: specie['classification'],
         designation: specie['designation'],
@@ -63,6 +66,7 @@ class DataImportation < ApplicationRecord
 
     @starship_results.each do |starship|
       Starship.create!(
+        id: starship['url'].split('/').last.to_i,
         name: starship['name'],
         model: starship['model'],
         manufacturer: starship['manufacturer'],
@@ -87,6 +91,7 @@ class DataImportation < ApplicationRecord
 
     @vehicle_results.each do |vehicle|
       Vehicle.create!(
+        id: vehicle['url'].split('/').last.to_i,
         name: vehicle['name'],
         model: vehicle['model'],
         manufacturer: vehicle['manufacturer'],
@@ -109,6 +114,7 @@ class DataImportation < ApplicationRecord
 
     @people_results.each do |people|
       Character.create!(
+        id: people['url'].split('/').last.to_i,
         name: people['name'],
         height: people['height'],
         mass: people['mass'],
@@ -125,9 +131,9 @@ class DataImportation < ApplicationRecord
 
   def film_matching
     @film_results.each do |film|
-      current_film = Film.find(['url'].split('/').last.to_i)
+      current_film = Film.find(film['url'].split('/').last.to_i)
       film['characters'].each do |character|
-        current_film.characters << Film.find(character.split('/').last.to_i)
+        current_film.characters << Character.find(character.split('/').last.to_i)
       end
       current_film.save
     end

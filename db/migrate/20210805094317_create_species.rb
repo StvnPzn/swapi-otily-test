@@ -1,6 +1,7 @@
 class CreateSpecies < ActiveRecord::Migration[6.0]
   def change
-    create_table :species do |t|
+    create_table :species, { id: false } do |t|
+      t.integer :id, primary_key: true
       t.string :name
       t.string :classification
       t.string :designation

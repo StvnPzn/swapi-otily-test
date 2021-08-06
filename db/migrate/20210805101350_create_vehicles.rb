@@ -1,6 +1,7 @@
 class CreateVehicles < ActiveRecord::Migration[6.0]
   def change
-    create_table :vehicles do |t|
+    create_table :vehicles, { id: false } do |t|
+      t.integer :id, primary_key: true
       t.string :name
       t.string :model
       t.string :manufacturer

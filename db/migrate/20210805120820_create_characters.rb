@@ -1,6 +1,7 @@
 class CreateCharacters < ActiveRecord::Migration[6.0]
   def change
-    create_table :characters do |t|
+    create_table :characters, { id: false } do |t|
+      t.integer :id, primary_key: true
       t.string :name
       t.integer :height
       t.integer :mass
