@@ -51,4 +51,31 @@
     </tbody>
 
   </table>
+
+  <% if !@specie.films.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Films
+      </button>
+      <ul class="dropdown-menu">
+        <% @specie.films.each do |film| %>
+          <li><%= link_to "#{film.title}", film_path(film), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+
+  <% if !@specie.films.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Personnages
+      </button>
+      <ul class="dropdown-menu">
+        <% @specie.characters.each do |character| %>
+          <li><%= link_to "#{character.name}", character_path(character), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+
 </div>

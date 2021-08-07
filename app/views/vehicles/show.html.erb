@@ -59,4 +59,30 @@
     </tbody>
 
   </table>
+
+  <% if !@vehicle.films.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Films
+      </button>
+      <ul class="dropdown-menu">
+        <% @vehicle.films.each do |film| %>
+          <li><%= link_to "#{film.title}", film_path(film), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+
+  <% if !@vehicle.characters.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Pilotes
+      </button>
+      <ul class="dropdown-menu">
+        <% @vehicle.characters.each do |character| %>
+          <li><%= link_to "#{character.name}", character_path(character), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
 </div>

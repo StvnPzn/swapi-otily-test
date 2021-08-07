@@ -36,4 +36,59 @@
 
   </table>
 
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Personnages
+    </button>
+    <ul class="dropdown-menu">
+      <% @film.characters.each do |character| %>
+        <li><%= link_to "#{character.name}", character_path(character), class: "dropdown-item" %></li>
+      <% end -%>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Planètes
+    </button>
+    <ul class="dropdown-menu">
+      <% @film.planets.each do |planet| %>
+        <li><%= link_to "#{planet.name}", planet_path(planet), class: "dropdown-item" %></li>
+      <% end -%>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Espèces
+    </button>
+    <ul class="dropdown-menu">
+      <% @film.species.each do |specie| %>
+        <li><%= link_to "#{specie.name}", specie_path(specie), class: "dropdown-item" %></li>
+      <% end -%>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Vaisseaux
+    </button>
+    <ul class="dropdown-menu">
+      <% @film.starships.each do |starship| %>
+        <li><%= link_to "#{starship.name}", starship_path(starship), class: "dropdown-item" %></li>
+      <% end -%>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Véhicules
+    </button>
+    <ul class="dropdown-menu">
+      <% @film.vehicles.each do |vehicle| %>
+        <li><%= link_to "#{vehicle.name}", vehicle_path(vehicle), class: "dropdown-item" %></li>
+      <% end -%>
+    </ul>
+  </div>
+
 </div>

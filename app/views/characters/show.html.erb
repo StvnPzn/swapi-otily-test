@@ -13,6 +13,10 @@
 
     <tbody>
       <tr>
+        <th scope="row">Planète d'origine</th>
+        <td><%= @character.planet.name %></td>
+      </tr>
+      <tr>
         <th scope="row">Taille</th>
         <td><%= @character.height %> cm</td>
       </tr>
@@ -43,4 +47,55 @@
     </tbody>
 
   </table>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Films
+    </button>
+    <ul class="dropdown-menu">
+      <% @character.films.each do |film| %>
+        <li><%= link_to "#{film.title}", film_path(film), class: "dropdown-item" %></li>
+      <% end -%>
+    </ul>
+  </div>
+
+  <% if !@character.species.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Espèces
+      </button>
+      <ul class="dropdown-menu">
+        <% @character.species.each do |specie| %>
+          <li><%= link_to "#{specie.name}", specie_path(specie), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+
+  <% if !@character.starships.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Vaisseaux
+      </button>
+      <ul class="dropdown-menu">
+        <% @character.starships.each do |starship| %>
+          <li><%= link_to "#{starship.name}", starship_path(starship), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+
+  <% if !@character.vehicles.empty? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Véhicules
+      </button>
+      <ul class="dropdown-menu">
+        <% @character.vehicles.each do |vehicle| %>
+          <li><%= link_to "#{vehicle.name}", vehicle_path(vehicle), class: "dropdown-item" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+
 </div>
