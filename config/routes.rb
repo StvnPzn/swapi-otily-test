@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :starships, only: [:index, :show]
   resources :vehicles, only: [:index, :show]
   resources :characters, only: [:index, :show]
+
+  get 'dashboards', to: 'dashboards#index'
+
 end

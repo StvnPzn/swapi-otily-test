@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1 class="py-3">Mes éléments consultés</h1>
+  <ul class="list-group">
+    <% @visits.reverse.each do |visit| %>
+      <li class="list-group-item"><%= visit.url  %></li>
+    <% end -%>
+  </ul>
+
+</div>

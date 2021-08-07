@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_220742) do
+ActiveRecord::Schema.define(version: 2021_08_07_103024) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -195,6 +195,14 @@ ActiveRecord::Schema.define(version: 2021_08_06_220742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_visits_on_user_id"
+  end
+
   add_foreign_key "characters", "planets"
   add_foreign_key "chars_films", "characters"
   add_foreign_key "chars_films", "films"
@@ -212,4 +220,5 @@ ActiveRecord::Schema.define(version: 2021_08_06_220742) do
   add_foreign_key "films_starships", "starships"
   add_foreign_key "films_vehicles", "films"
   add_foreign_key "films_vehicles", "vehicles"
+  add_foreign_key "visits", "users"
 end

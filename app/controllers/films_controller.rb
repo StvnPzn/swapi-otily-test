@@ -5,5 +5,15 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
+    create_visit
+  end
+
+  private
+
+  def create_visit
+    new_visit = Visit.create!(
+      user: current_user,
+      url: @film.url
+    )
   end
 end
