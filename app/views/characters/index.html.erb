@@ -1,7 +1,7 @@
 <div class="container">
 
   <h1 class="py-3">Les personnages Star Wars</h1>
-  <ul class="list-group">
+  <ul class="list-group pb-3">
     <% @characters.each do |character| %>
       <li class="list-group-item"><%= link_to "#{character.name}", character_path(character)  %></li>
     <% end -%>

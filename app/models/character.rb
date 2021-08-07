@@ -10,5 +10,7 @@ class Character < ApplicationRecord
 
   belongs_to :planet
 
+  validates :url, presence: true
+
   self.primary_key = 'id'
 end

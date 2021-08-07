@@ -1,7 +1,7 @@
 <div class="container">
 
   <h1 class="py-3">Les films Star Wars</h1>
-  <ul class="list-group">
+  <ul class="list-group pb-3">
     <% @films.each do |film| %>
       <li class="list-group-item"><%= link_to "#{film.title}", film_path(film)  %></li>
     <% end -%>

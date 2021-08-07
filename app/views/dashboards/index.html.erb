@@ -3,7 +3,19 @@
   <h1 class="py-3">Mes éléments consultés</h1>
   <ul class="list-group">
     <% @visits.reverse.each do |visit| %>
-      <li class="list-group-item"><%= visit.url  %></li>
+      <% if visit.url.include?('species') %>
+        <li class="list-group-item"><%= link_to "#{Specie.find(visit.url.split('/').last.to_i).name}", specie_path(visit.url.split('/').last.to_i), class: "text-decoration-none"  %></li>
+      <% elsif visit.url.include?('films') %>
+        <li class="list-group-item"><%= link_to "#{Film.find(visit.url.split('/').last.to_i).title}", film_path(visit.url.split('/').last.to_i), class: "text-decoration-none"  %></li>
+      <% elsif visit.url.include?('characters') %>
+        <li class="list-group-item"><%= link_to "#{Character.find(visit.url.split('/').last.to_i).name}", character_path(visit.url.split('/').last.to_i), class: "text-decoration-none"  %></li>
+      <% elsif visit.url.include?('planets') %>
+        <li class="list-group-item"><%= link_to "#{Planet.find(visit.url.split('/').last.to_i).name}", planet_path(visit.url.split('/').last.to_i), class: "text-decoration-none"  %></li>
+      <% elsif visit.url.include?('starships') %>
+        <li class="list-group-item"><%= link_to "#{Starship.find(visit.url.split('/').last.to_i).name}", starship_path(visit.url.split('/').last.to_i), class: "text-decoration-none"  %></li>
+      <% elsif visit.url.include?('vehicles') %>
+        <li class="list-group-item"><%= link_to "#{Vehicle.find(visit.url.split('/').last.to_i).name}", vehicle_path(visit.url.split('/').last.to_i), class: "text-decoration-none"  %></li>
+      <% end -%>
     <% end -%>
   </ul>
 
