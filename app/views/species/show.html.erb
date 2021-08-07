@@ -22,7 +22,7 @@
       </tr>
       <tr>
         <th scope="row">Taille moyenne</th>
-        <td><%= @specie.average_height %></td>
+        <td><%= @specie.average_height %> cm</td>
       </tr>
       <tr>
         <th scope="row">Couleurs de peau</th>
@@ -38,7 +38,11 @@
       </tr>
       <tr>
         <th scope="row">Durée de vie moyenne</th>
-        <td><%= @specie.average_lifespan %></td>
+        <% if @specie.average_lifespan == 0 %>
+          <td>unknown</td>
+        <% else %>
+          <td><%= @specie.average_lifespan %> ans</td>
+        <% end -%>
       </tr>
       <tr>
         <th scope="row">Language</th>

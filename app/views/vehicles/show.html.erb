@@ -22,15 +22,19 @@
       </tr>
       <tr>
         <th scope="row">Coût</th>
-        <td><%= @vehicle.cost_in_credits %></td>
+        <% if @vehicle.cost_in_credits == 0 %>
+          <td>unknown</td>
+        <% else %>
+          <td><%= @vehicle.cost_in_credits %> €</td>
+        <% end -%>
       </tr>
       <tr>
         <th scope="row">Longueur</th>
-        <td><%= @vehicle.length %></td>
+        <td><%= @vehicle.length %> m</td>
       </tr>
       <tr>
         <th scope="row">Vitesse maxi</th>
-        <td><%= @vehicle.max_atmosphering_speed %></td>
+        <td><%= @vehicle.max_atmosphering_speed %> km/h</td>
       </tr>
       <tr>
         <th scope="row">Équipage</th>

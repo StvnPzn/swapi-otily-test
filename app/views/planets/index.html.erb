@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1 class="py-3">Les planètes de Star Wars</h1>
+  <ul class="list-group">
+    <% @planets.each do |planet| %>
+      <li class="list-group-item"><%= link_to "#{planet.name}", planet_path(planet)  %></li>
+    <% end -%>
+  </ul>
+
+</div>

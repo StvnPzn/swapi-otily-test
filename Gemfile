@@ -25,6 +25,7 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
+gem 'pry-byebug'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

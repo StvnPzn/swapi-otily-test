@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_175238) do
+ActiveRecord::Schema.define(version: 2021_08_06_220742) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2021_08_05_175238) do
     t.string "birth_year"
     t.string "gender"
     t.string "url"
+    t.integer "planet_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["planet_id"], name: "index_characters_on_planet_id"
   end
 
   create_table "chars_films", force: :cascade do |t|
@@ -33,6 +35,33 @@ ActiveRecord::Schema.define(version: 2021_08_05_175238) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_chars_films_on_character_id"
     t.index ["film_id"], name: "index_chars_films_on_film_id"
+  end
+
+  create_table "chars_species", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "specie_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_chars_species_on_character_id"
+    t.index ["specie_id"], name: "index_chars_species_on_specie_id"
+  end
+
+  create_table "chars_starships", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "starship_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_chars_starships_on_character_id"
+    t.index ["starship_id"], name: "index_chars_starships_on_starship_id"
+  end
+
+  create_table "chars_vehicles", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "vehicle_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_chars_vehicles_on_character_id"
+    t.index ["vehicle_id"], name: "index_chars_vehicles_on_vehicle_id"
   end
 
   create_table "data_importations", force: :cascade do |t|
@@ -50,6 +79,42 @@ ActiveRecord::Schema.define(version: 2021_08_05_175238) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "url"
+  end
+
+  create_table "films_planets", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "planet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_films_planets_on_film_id"
+    t.index ["planet_id"], name: "index_films_planets_on_planet_id"
+  end
+
+  create_table "films_species", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "specie_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_films_species_on_film_id"
+    t.index ["specie_id"], name: "index_films_species_on_specie_id"
+  end
+
+  create_table "films_starships", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "starship_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_films_starships_on_film_id"
+    t.index ["starship_id"], name: "index_films_starships_on_starship_id"
+  end
+
+  create_table "films_vehicles", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "vehicle_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_films_vehicles_on_film_id"
+    t.index ["vehicle_id"], name: "index_films_vehicles_on_vehicle_id"
   end
 
   create_table "planets", force: :cascade do |t|
@@ -130,6 +195,21 @@ ActiveRecord::Schema.define(version: 2021_08_05_175238) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "characters", "planets"
   add_foreign_key "chars_films", "characters"
   add_foreign_key "chars_films", "films"
+  add_foreign_key "chars_species", "characters"
+  add_foreign_key "chars_species", "species"
+  add_foreign_key "chars_starships", "characters"
+  add_foreign_key "chars_starships", "starships"
+  add_foreign_key "chars_vehicles", "characters"
+  add_foreign_key "chars_vehicles", "vehicles"
+  add_foreign_key "films_planets", "films"
+  add_foreign_key "films_planets", "planets"
+  add_foreign_key "films_species", "films"
+  add_foreign_key "films_species", "species"
+  add_foreign_key "films_starships", "films"
+  add_foreign_key "films_starships", "starships"
+  add_foreign_key "films_vehicles", "films"
+  add_foreign_key "films_vehicles", "vehicles"
 end

@@ -11,6 +11,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :birth_year
       t.string :gender
       t.string :url
+      t.references :planet, foreign_key: true
 
       t.timestamps
     end

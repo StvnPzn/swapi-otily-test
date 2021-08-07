@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h1 class="text-center py-3"><%= @planet.name %></h1>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Caractéristiques</th>
+        <th scope="col">Infos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Période de rotation</th>
+        <td><%= @planet.rotation_period %> jours</td>
+      </tr>
+      <tr>
+        <th scope="row">Période orbitale</th>
+        <td><%= @planet.orbital_period %> jours</td>
+      </tr>
+      <tr>
+        <th scope="row">Diamètre</th>
+        <% if @planet.diameter != 0 %>
+          <td><%= @planet.diameter %> km</td>
+        <% else %>
+          <td>unknown</td>
+        <% end -%>
+      </tr>
+      <tr>
+        <th scope="row">Climat</th>
+        <td><%= @planet.climate %></td>
+      </tr>
+      <tr>
+        <th scope="row">Gravité</th>
+        <td><%= @planet.gravity %></td>
+      </tr>
+      <tr>
+        <th scope="row">Sol</th>
+        <td><%= @planet.terrain %></td>
+      </tr>
+      <tr>
+        <th scope="row">Surface aquatique</th>
+        <% if @planet.surface_water.nil? %>
+          <td>unknown</td>
+        <% else %>
+          <td><%= @planet.surface_water %></td>
+        <% end -%>
+      </tr>
+      <tr>
+        <th scope="row">Population</th>
+        <td><%= @planet.population %></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>

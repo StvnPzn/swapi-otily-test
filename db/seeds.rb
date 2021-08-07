@@ -1,14 +1,7 @@
 require 'open-uri'
 require 'json'
 
-puts 'Destroy everything first'
-Film.destroy_all
-Planet.destroy_all
-Specie.destroy_all
-Starship.destroy_all
-Vehicle.destroy_all
-Character.destroy_all
-puts 'DB cleaned'
+puts 'Starting importation'
 
 seed = DataImportation.new
 #### FILMS IMPORTATION ####
@@ -35,5 +28,13 @@ puts "#{Vehicle.count} vehicles OK"
 puts 'Characters importation'
 seed.import_characters
 puts "#{Character.count} characters OK"
-puts 'Test des relations films/characters'
+### Films relations IMPORTATION ####
+puts 'Relation des Films avec le reste'
 seed.film_matching
+puts 'Relation Films/reste OK'
+### Characters relations IMPORTATION ####
+puts 'Relation des Characters avec le reste'
+seed.character_matching
+puts 'Relation Characters/reste OK'
+
+puts 'Importation OK'

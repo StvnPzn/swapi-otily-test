@@ -22,15 +22,23 @@
       </tr>
       <tr>
         <th scope="row">Coût</th>
-        <td><%= @starship.cost_in_credits %></td>
+        <% if @starship.cost_in_credits == 0 %>
+          <td>unknown</td>
+        <% else %>
+          <td><%= @starship.cost_in_credits %> €</td>
+        <% end -%>
       </tr>
       <tr>
         <th scope="row">Longueur</th>
-        <td><%= @starship.length %></td>
+        <td><%= @starship.length %> m</td>
       </tr>
       <tr>
         <th scope="row">Vitesse maxi</th>
-        <td><%= @starship.max_atmosphering_speed %></td>
+        <% if @starship.max_atmosphering_speed == 0 %>
+          <td>unknown</td>
+        <% else %>
+          <td><%= @starship.max_atmosphering_speed %> km/h</td>
+        <% end -%>
       </tr>
       <tr>
         <th scope="row">Équipage</th>
@@ -54,7 +62,11 @@
       </tr>
       <tr>
         <th scope="row">MGLT</th>
-        <td><%= @starship.MGLT %></td>
+        <% if @starship.MGLT == 0 %>
+          <td>unknown</td>
+        <% else %>
+          <td><%= @starship.MGLT %></td>
+        <% end -%>
       </tr>
       <tr>
         <th scope="row">Type de vaisseau</th>
