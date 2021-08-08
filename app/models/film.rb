@@ -10,6 +10,7 @@ class Film < ApplicationRecord
   has_many :films_vehicles
   has_many :vehicles, through: :films_vehicles
 
+  validates :title, presence: true
   validates :url, presence: true
 
   self.primary_key = 'id'

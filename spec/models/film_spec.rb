@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Film, type: :model do
-  it 'is valid with title, producer, director and url' do
+  it 'is valid with title and url' do
     film = Film.new(
       title: 'A New Hope',
       producer: 'Gary Kurtz, Rick McCallum',
@@ -27,7 +27,7 @@ RSpec.describe Film, type: :model do
     expect(film.title).to eq 'A New Hope'
   end
 
-  ### Avec plus de pratique :
+  ### En plus d'appliquer ces vérifications simples sur chacun des models, avec plus de pratique et de connaissances sur RSpec, j'aurais ajouté :
   ### -- test sur les creations de classes
   ### -- test sur GET request via l'API
 end

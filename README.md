@@ -2,7 +2,6 @@
 
 Pour profiter de cette application :
 * run these commands on your terminal :
-rails db:create
 rails db:migrate
 rails db:seed
 rails s
