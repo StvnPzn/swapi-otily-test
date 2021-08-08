@@ -11,7 +11,7 @@ class StarshipsController < ApplicationController
   private
 
   def create_visit
-    new_visit = Visit.create!(
+    Visit.create!(
       user: current_user,
       url: @starship.url
     )

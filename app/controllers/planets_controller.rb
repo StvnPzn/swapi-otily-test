@@ -11,7 +11,7 @@ class PlanetsController < ApplicationController
   private
 
   def create_visit
-    new_visit = Visit.create!(
+    Visit.create!(
       user: current_user,
       url: @planet.url
     )
